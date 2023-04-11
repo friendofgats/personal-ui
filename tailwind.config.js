@@ -9,14 +9,17 @@ module.exports = {
         'pink': '#ff49db',
         'orange': '#ff7849',
         'green': '#13ce66',
-        'yellow': '#ffc82c',
+        'yellow': '#e7aa14',
         'gray-dark': '#273444',
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
-        'brown': '#5b3e31'
+        'brown': '#5b3e31',
+        'tan': '#715920',
+        'cave': '#38311f'
       },
       fontFamily: {
         sans: ['Graphik', 'sans-serif'],
+        'vt323': ['VT323', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
       },
       extend: {

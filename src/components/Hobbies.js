@@ -1,2 +1,1 @@
-const Hobbies = () => { }
-export default Hobbies;
+export default function Hobbies() { }

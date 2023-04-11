@@ -1,2 +1,1 @@
-const Site = () => { }
-export default Site;
+export default function Site() { ; }

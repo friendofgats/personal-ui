@@ -1,31 +1,53 @@
-const Navmenu = () => {
+import { useEffect, useState } from "react";
+import HoverableImage from "./shared/HoverableImage";
+import { Link } from "react-router-dom";
+
+/**
+ * Comprehensively imports each image from the collection passed to it.
+ * @param {*} raw Required files to be imported.
+ * @returns {Dictionary} Mapped images keyed on format-agnostic filenames.
+ */
+function importAll(raw) {
+    let images = {};
+    raw.keys().forEach((item, index) => { images[item.replace('./', '').split('.')[0]] = raw(item); });
+    return images
+}
+
+export default function Navmenu() {
+    const [images, setImages] = useState({});
+    const [gifs, setGifs] = useState({});
+    const [selectedSection, setSelectedSection] = useState("");
+
+    function toggleImage(identifier) {
+        return selectedSection === identifier ? gifs[identifier] : images[identifier]
+
+    }
+
+    useEffect(() => {
+        setImages(importAll(require.context('../assets/images', false, /\.(png|jpe?g|svg)$/)));
+        setGifs(importAll(require.context('../assets/gifs', false, /\.(gif)$/)));
+    }, [])
+
     return (
-        <header className="bg-grey-400 md:sticky top-0 z-10">
+        <header className="md:sticky top-0 z-10">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                <a className="title-font font-medium text-white mb-4 md:mb-0">
-                    <a href="http://localhost:3000/me" className="ml-3 text-xl">
-                        Ethan Heyrman
-                    </a>
-                </a>
-                <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l flex flex-wrap items-center text-base justify-center">
-                    <a href="http://localhost:3000/resume" className="mr-5 hover:text-white">
-                        Things I'm good at
-                    </a>
-                    <a href="http://localhost:3000/hobbies" className="mr-5 hover:text-white">
-                        What I'm up to
-                    </a>
-                    <a href="http://localhost:3000/contact" className="mr-5 hover:text-white">
-                        Contact me
-                    </a>
-                </nav>
-                <a
-                    href="http://localhost:3000/site"
-                    className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-                    Site guts
-                </a>
+                <img className="object-cover h-32 w-32" src={images.avatar} alt="me" />
+                <Link className="object-cover hover:text-yellow ml-10 text-xl title-font font-medium text-grey md:mb-0" to="http://localhost:3000/me">
+                    <HoverableImage image={toggleImage("name")} alt="Ethan Heyrman" hoverImage={gifs.name} onClick={() => setSelectedSection("name")} />
+                </Link>
+                <img className="object-cover ml-5 text-xl" src={images.break} alt="|" />
+                <div className="flex flex-wrap items-center text-base justify-center">
+                    <Link className="object-cover bg-gradient-to-r from-purple-600 to-pink-600 hover:text-yellow md:mr-auto md:ml-5 " to="http://localhost:3000/work">
+                        <HoverableImage image={toggleImage("work")} alt="What I do for work" hoverImage={gifs.work} onClick={() => setSelectedSection("work")} />
+                    </Link>
+                    <Link className="object-cover mr-5 ml-5 hover:text-yellow" to="http://localhost:3000/hobbies">
+                        <HoverableImage image={toggleImage("fun")} alt="What I do for fun" hoverImage={gifs.fun} onClick={() => setSelectedSection("fun")} />
+                    </Link>
+                    <Link className="object-cover hover:text-yellow" to="http://localhost:3000/contact">
+                        <HoverableImage image={toggleImage("contact")} alt="Contact me" hoverImage={gifs.contact} onClick={() => setSelectedSection("contact")} />
+                    </Link>
+                </div>
             </div>
         </header>
     );
 }
-
-export default Navmenu;
