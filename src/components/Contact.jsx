@@ -10,7 +10,12 @@ export default function Contact(props) {
     }, [])
 
     let queryParams = { section: props.section ?? "Contact", verbosity: props.verbosity ?? 10 }
-    let data = RequestHandler(queryParams);
+    let { data, error, loaded } = RequestHandler(queryParams);
+
+    if (!loaded)
+        return <div className="pl-6 text-3xl text-yellow" >Loading . . .</div>
+    if (error)
+        return <div className="pl-6 text-3xl text-yellow" >{error}</div>
     return (
         <div className="pl-6 text-3xl text-yellow" >
             <Container body={data?.body} />

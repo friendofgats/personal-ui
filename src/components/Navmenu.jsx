@@ -13,12 +13,10 @@ export default function Navmenu() {
     function toggleAvatar(identifier) {
         if (avatar === "") return images.avatar;
         return avatar === identifier ? gifs.avatar2 : gifs.avatar1
-
     }
 
     function toggleSectionImage(identifier) {
         return section === identifier ? gifs[identifier] : images[identifier]
-
     }
 
     useEffect(() => {
@@ -30,7 +28,13 @@ export default function Navmenu() {
         <header className="z-10 w-full">
             <div className="flex max-2xl:flex-col 2xl:flex-wrap 2xl:p-5 items-center justify-center 2xl:justify-evenly text-xl hover:text-yellow">
                 <div className="">
-                    <img className="object-cover h-32 w-32 max-2xl:mb-10" src={toggleAvatar("avatar1")} alt="me" onClick={(e) => setAvatar(e.currentTarget.src.substring(e.currentTarget.src.lastIndexOf('/') + 1).split('.')[0])} />
+                    <img
+                        className="object-cover h-32 w-32 max-2xl:mb-10"
+                        src={toggleAvatar("avatar1")}
+                        alt="me"
+                        onClick={(e) => setAvatar(
+                            e.currentTarget.src.substring(e.currentTarget.src.lastIndexOf('/') + 1).split('.')[0])}
+                    />
                 </div>
                 <Link className="object-cover title-font 2xl:ml-5 max-2xl:mb-10 justify-center items-center" to="http://localhost:3000/me">
                     <HoverableImage image={toggleSectionImage("name")} alt="Ethan Heyrman" hoverImage={gifs.name} onClick={() => setSection("name")} />
