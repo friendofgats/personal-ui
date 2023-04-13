@@ -14,10 +14,10 @@ export default function AppRouter() {
         <BrowserRouter>
             <Navmenu />
             <Routes>
-                <Route path="me" element={<About section="TestAbout" verbosity={9} />} />
+                <Route path="me" element={<About section="TestAbout" verbosity={10} />} />
                 <Route path="work" element={<Resume />} />
                 <Route path="hobbies" element={<Hobbies />} />
-                <Route path="contact" element={<Contact />} />
+                <Route path="contact" element={<Contact section="TestContact" verbosity={10} />} />
                 <Route path="site" element={<Site />} />
             </Routes>
         </BrowserRouter>
