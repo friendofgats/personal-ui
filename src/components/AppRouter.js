@@ -3,7 +3,7 @@ import '../App.css';
 import About from './About';
 import Contact from './Contact';
 import Hobbies from './Hobbies';
-import Resume from './Resume';
+import Work from './Work';
 import Site from './Site';
 import Navmenu from './Navmenu';
 
@@ -15,7 +15,7 @@ export default function AppRouter() {
             <Navmenu />
             <Routes>
                 <Route path="me" element={<About section="TestAbout" verbosity={10} />} />
-                <Route path="work" element={<Resume />} />
+                <Route path="work" element={<Work section="TestWork" verbosity={10} />} />
                 <Route path="hobbies" element={<Hobbies />} />
                 <Route path="contact" element={<Contact section="TestContact" verbosity={10} />} />
                 <Route path="site" element={<Site />} />

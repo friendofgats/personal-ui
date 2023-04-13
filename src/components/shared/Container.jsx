@@ -1,11 +1,11 @@
 import smile from '../../assets/gifs/global/smile.gif'
 
 export default function Container(props) {
+    const text = props.body?.split('\n').map(e => <p className='pt-5'>{e}</p>)
     return (
         <div className="pl-6 text-3xl text-yellow ">
-            {props.body}
+            {text}
             <img className="object-cover ml-5 text-xl inline" src={smile} alt="⊂(◉‿◉)つ" />
-
         </div>
     );
 }
