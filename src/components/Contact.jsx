@@ -13,9 +13,9 @@ export default function Contact(props) {
     let { data, error, loaded } = RequestHandler(queryParams);
 
     if (!loaded)
-        return <div className="pl-6 text-3xl text-yellow" >Loading . . .</div>
+        return <div />
     if (error)
-        return <div className="pl-6 text-3xl text-yellow" >{error}</div>
+        return <div className="text-3xl text-yellow" >{error}</div>
     return (
         <div className="pl-6 text-3xl text-yellow" >
             <Container body={data?.body} />
