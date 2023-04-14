@@ -17,7 +17,7 @@ export default function Contact(props) {
     if (error)
         return <div className="text-3xl text-yellow" >{error}</div>
     return (
-        <div className="pl-6 text-3xl text-yellow" >
+        <div className="text-3xl text-yellow" >
             <Container body={data?.body} />
             <div className="container ">
                 <div className="flex p-5 items-center">

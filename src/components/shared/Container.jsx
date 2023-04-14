@@ -5,7 +5,7 @@ export default function Container(props) {
     return (
         <div className="text-3xl text-yellow ">
             {text}
-            <img className="object-cover ml-5 text-xl inline" src={smile} alt="⊂(◉‿◉)つ" />
+            <img className="object-cover text-xl inline" src={smile} alt="⊂(◉‿◉)つ" />
         </div>
     );
 }
