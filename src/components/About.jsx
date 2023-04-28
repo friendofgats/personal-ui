@@ -5,7 +5,7 @@ import RequestHandler from './shared/RequestHandler'
 export default function About(props) {
     let queryParams = { section: props.section ?? "About", verbosity: props.verbosity ?? 10 }
     let { data, error, loaded } = RequestHandler(queryParams);
-
+    console.log(queryParams.verbosity)
     if (!loaded)
         return <div />
     if (error)
