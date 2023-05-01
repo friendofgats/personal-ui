@@ -15,7 +15,6 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
         const cachedData = JSON.parse(localStorage.getItem(key));
         if (cachedData) setData(cachedData);
         else {
-            console.log("reached")
             axios.get(BASE_URL, {
                 params: {
                     section: section,
