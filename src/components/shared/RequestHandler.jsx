@@ -7,14 +7,15 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
     const [data, setData] = useState({});
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState("");
-
     const { section, verbosity } = props;
     const key = section + '_' + verbosity;
 
     useEffect(() => {
         // localStorage will not work in private browser sessions
-        setData(JSON.parse(localStorage.getItem(key)));
-        if (Object.keys(data).length === 0) {
+        const cachedData = JSON.parse(localStorage.getItem(key));
+        if (cachedData) setData(cachedData);
+        else {
+            console.log("reached")
             axios.get(BASE_URL, {
                 params: {
                     section: section,
@@ -24,13 +25,12 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
             ).then((response) => {
                 localStorage.setItem(key, JSON.stringify(response.data))
                 setData(response.data)
-
             })
                 .catch(() => {
                     setError("Error retrieving data. Sorry you had to see this.")
                 });
         }
         setLoaded(true);
-    }, []);
+    }, [key]);
     return { data, error, loaded };
 }

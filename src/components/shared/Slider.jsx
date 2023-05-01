@@ -19,7 +19,7 @@ const Slider = (props) => {
                     {...props}
                     text={null}
                 >
-                    <img className="h-full items-center flex items-center justify-center cursor-grab" img src={head} alt="whatever"></img>
+                    <img className="h-full items-center flex items-center justify-center cursor-grab" src={head} alt="whatever"></img>
                 </div>
             )}
             renderTrack={(props, state) => {
