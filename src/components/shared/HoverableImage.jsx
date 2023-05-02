@@ -1,11 +1,11 @@
-export default function HoverableImage(props) {
+export default function HoverableImage({ image, hoverImage, alt, onClick }) {
     return (
         <img
-            src={props.image}
-            alt={props.alt}
-            onMouseOver={e => (e.currentTarget.src = props.hoverImage)}
-            onMouseOut={e => (e.currentTarget.src = props.image)}
-            onClick={props.onClick}
+            src={image}
+            alt={alt}
+            onMouseOver={e => (e.currentTarget.src = hoverImage)}
+            onMouseOut={e => (e.currentTarget.src = image)}
+            onClick={onClick}
         />
     )
 }

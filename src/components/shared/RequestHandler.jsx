@@ -11,7 +11,6 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
     const key = section + '_' + verbosity;
 
     useEffect(() => {
-        // localStorage will not work in private browser sessions
         const cachedData = JSON.parse(localStorage.getItem(key));
         if (cachedData) setData(cachedData);
         else {
@@ -30,6 +29,6 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
                 });
         }
         setLoaded(true);
-    }, [key]);
+    }, [section, verbosity, key]);
     return { data, error, loaded };
 }
