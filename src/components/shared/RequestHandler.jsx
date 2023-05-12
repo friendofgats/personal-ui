@@ -12,7 +12,7 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
         const cachedData = JSON.parse(localStorage.getItem(key));
         if (cachedData) setData(cachedData);
         else {
-            axios.get(process.env.API_BASE_URL, {
+            axios.get(process.env.REACT_APP_API_BASE_URL, {
                 params: {
                     section: section,
                     verbosity: verbosity
