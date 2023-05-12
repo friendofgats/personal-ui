@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import AssetLoader from "./shared/AssetLoader";
 import Container from "./shared/Container";
 import RequestHandler from './shared/RequestHandler'
-export default function Contact({ section = "Contact" }) {
+export default function Contact({ section = "Contact", verbosity = 5, setVerbosity }) {
     const [images, setImages] = useState({});
 
     useEffect(() => {
         setImages(AssetLoader(require.context('../assets/images/contact', false, /\.(png|jpe?g|svg)$/)));
     }, [])
 
-    let queryParams = { section: section }
+    let queryParams = { section: section, verbosity: verbosity }
     let { data, error, loaded } = RequestHandler(queryParams);
 
     if (!loaded)
