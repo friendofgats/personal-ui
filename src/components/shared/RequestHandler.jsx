@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
-const BASE_URL = "http://localhost:8000/info"
-
 export default function RequestHandler(props = { section: "", verbosity: 0 }) {
     const [data, setData] = useState({});
     const [loaded, setLoaded] = useState(false);
@@ -14,7 +12,7 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
         const cachedData = JSON.parse(localStorage.getItem(key));
         if (cachedData) setData(cachedData);
         else {
-            axios.get(BASE_URL, {
+            axios.get(process.env.API_BASE_URL, {
                 params: {
                     section: section,
                     verbosity: verbosity
