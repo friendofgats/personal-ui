@@ -88,15 +88,15 @@ export default function Navmenu() {
                     {open && !isDesktop() ? (
                         <MenuCloser clickHandler={handleOffMenuClick}>
                             <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 ">
-                                <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "contact" ? "orange" : "yellow"
+                                <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "contact" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
                                     <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(true) }}>Contact me</Link>
                                 </li>
-                                <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "guts" ? "orange" : "yellow"
+                                <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "guts" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
                                     <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(true) }}>Site guts</Link>
                                 </li>
-                                <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "resume" ? "orange" : "yellow"
+                                <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "resume" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
                                     <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(true) }}>Resume</Link>
                                 </li>
