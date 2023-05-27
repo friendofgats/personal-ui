@@ -5,7 +5,6 @@ import thumb from '../../assets/images/shared/slider-thumb.png';
  * Simple implementation of react-slider's ReactSlider.
  * Not looking to reinvent the wheel but using it as it plays nicely with tailwind.
  * @param {*} props 
- * @returns 
  */
 export default function Slider(props) {
     return (

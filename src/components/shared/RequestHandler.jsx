@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
+/**
+ * Generic axios request generator that leverages sessionStorage to reduce redundant requests.
+ * @param {String} section Named page/section of content to retrieve
+ * @param {int} verbosity Level of detail of content to retrieve 
+ * @returns 
+ */
 export default function RequestHandler(props = { section: "", verbosity: 0 }) {
     const [data, setData] = useState({});
     const [loaded, setLoaded] = useState(false);

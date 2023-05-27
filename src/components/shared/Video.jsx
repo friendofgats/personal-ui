@@ -1,5 +1,9 @@
 import React, { useState, useRef } from 'react';
 
+/**
+ * Utility to handle video loading and interaction.
+ * @param {Dictionary} videoSources Mapped webm URLs keyed on format-agnostic filenames. 
+ */
 function Video({ videoSources }) {
     const [videoSrc, setVideoSrc] = useState(videoSources[0]);
     const videoRef = useRef(null);
