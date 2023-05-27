@@ -4,7 +4,7 @@ import Container from "./shared/Container";
 import Error from "./shared/Error";
 import RequestHandler from './shared/RequestHandler'
 
-export default function Contact({ section = "Contact", verbosity = 1, setVerbosity }) {
+export default function Contact({ section = "Contact", verbosity = 5 }) {
     const [images, setImages] = useState({});
     const [phone, setPhone] = useState("CLICK ME!");
 
