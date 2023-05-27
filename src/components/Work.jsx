@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Container from "./shared/Container";
 import RequestHandler from './shared/RequestHandler'
 import Slider from "./shared/Slider";
