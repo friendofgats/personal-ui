@@ -24,16 +24,16 @@ export default function Contact({ section = "Contact", verbosity = 1, setVerbosi
             <Container className="-mt-5" body={data?.body} />
             <hr className="w-full h-1 mx-auto my-8 bg-yellow border-0" />
             <div className="text-xl xl:text-3xl text-yellow">
-                <div className="flex pr-3 pl-3 pb-3 items-center hover:text-orange">
+                <div className="flex pr-3 pl-3 pb-3 items-center hover:text-brown">
                     <img className="w-10 h-13" src={images.github} alt="github" />
                     <a className="pl-5" href="https://www.github.com/friendofgats">github.com/friendofgats</a>
                 </div>
-                <div className="flex p-3 items-center hover:text-orange">
+                <div className="flex p-3 items-center hover:text-brown">
                     <img className="w-10 h-13" src={images.phone} alt="phone" />
-                    <p className="pl-5" onClick={() => { setPhone("+1.920.660.7195"); this.onClick = null; }}>{phone}</p>
+                    <p className="pl-5" onClick={() => { phone !== "+1.920.660.7195" ? setPhone("+1.920.660.7195") : setPhone("Why did you cover this back up?") }}>{phone}</p>
 
                 </div>
-                <div className="flex p-3 items-center hover:text-orange">
+                <div className="flex p-3 items-center hover:text-brown">
                     <img className="w-10 h-13" src={images.email} alt="email" />
                     <a className="pl-5" href="mailto:ethanheyrman.dev@outlook.com">ethanheyrman.dev@outlook.com</a>
                 </div>
