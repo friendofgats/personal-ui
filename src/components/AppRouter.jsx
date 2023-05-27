@@ -6,7 +6,7 @@ import Navmenu from './Navmenu';
 import Resume from './Resume';
 import Site from './Site';
 import Work from './Work';
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route, } from "react-router-dom";
 
 export default function AppRouter() {
     const [verbosity, setVerbosity] = useState(5);
@@ -20,6 +20,7 @@ export default function AppRouter() {
                 <Route path="contact" element={<Contact section="Contact" />} />
                 <Route path="guts" element={<Site section="Site" />} />
                 <Route path="resume" element={<Resume section="Resume" />} />
+                <Route path="*" element={<Navigate to='about' />} />
             </Routes>
         </BrowserRouter>
     );
