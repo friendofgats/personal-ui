@@ -9,7 +9,7 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
     const key = section + '_' + verbosity;
 
     useEffect(() => {
-        const cachedData = JSON.parse(localStorage.getItem(key));
+        const cachedData = JSON.parse(sessionStorage.getItem(key));
         if (cachedData) setData(cachedData);
         else {
             axios.get(process.env.REACT_APP_API_BASE_URL, {
@@ -21,7 +21,7 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
             ).then((response) => {
                 //TODO enable this when responses for each verbosity are set.
                 // const retrieved_key = response.data?.verbosity !== undefined ? section + '_' + response.data?.verbosity : key;
-                localStorage.setItem(key, JSON.stringify(response.data))
+                sessionStorage.setItem(key, JSON.stringify(response.data))
                 setData(response.data)
             })
                 .catch(() => {

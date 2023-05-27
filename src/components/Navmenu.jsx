@@ -29,11 +29,11 @@ export default function Navmenu() {
         <header className="z-10 w-full">
             <div className="flex max-2xl:flex-col 2xl:flex-row 2xl:m-5 2xl:-mb-1 items-center text-xl hover:text-yellow">
                 <img className="object-cover h-32 w-32 max-2xl:mb-5" src={images.avatar} alt="smile!" />
-                <Link className="max-2xl:h-1/3 max-2xl:w-1/3 2xl:ml-5" to={""}>
+                <Link className="h-1/2 w-1/2 lg:h-1/3 lg:w-1/3 2xl:ml-5" to={""}>
                     <HoverableImage image={toggleSectionImage("about")} alt="Ethan Heyrman" hoverImage={gifs.about} onClick={() => setSection("about")} />
                 </Link>
                 <img className="scale-50 max-2xl:hidden 2xl:visible 2xl:m-5" src={images.break} alt="|" />
-                <div className="flex flex-row items-center max-2xl:h-3/4 max-2xl:w-3/4 max-2xl:ml-2 max-2xl:mr-2">
+                <div className="flex flex-row items-center lg:h-3/4 lg:w-3/4 2xl:h-full 2xl:w-full max-2xl:ml-2 max-2xl:mr-2">
                     <Link to="/work">
                         <HoverableImage image={toggleSectionImage("work")} alt="What I do for work" hoverImage={gifs.work} onClick={() => setSection("work")} />
                     </Link>

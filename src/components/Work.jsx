@@ -13,8 +13,8 @@ export default function Work({ section = "Work", verbosity = 5, setVerbosity }) 
     else if (data?.body !== undefined)
         return (
             <div>
-                <Container body={data?.body} />
                 <Slider className="w-80 h-12" defaultValue={5} min={1} max={10} setVerbosity={setVerbosity} />
+                <Container body={data?.body} />
             </div>
         );
 }
