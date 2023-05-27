@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AssetLoader from "./shared/AssetLoader";
 import Container from "./shared/Container";
 import RequestHandler from './shared/RequestHandler'
-export default function Contact({ section = "Contact", verbosity = 5, setVerbosity }) {
+export default function Contact({ section = "Contact", verbosity = 1, setVerbosity }) {
     const [images, setImages] = useState({});
 
     useEffect(() => {
@@ -17,20 +17,20 @@ export default function Contact({ section = "Contact", verbosity = 5, setVerbosi
     if (error)
         return <div className="text-3xl text-yellow" >{error}</div>
     return (
-        <div className="text-3xl text-yellow" >
+        <div>
             <Container body={data?.body} />
-            <div className="container ">
-                <div className="flex p-5 items-center">
-                    <img className="" src={images.github} alt="github" />
-                    <p className="pl-5">github.com/friendofgats</p>
+            <div className="text-xl xl:text-3xl text-yellow">
+                <div className="flex pr-3 pl-3 pb-3 items-center">
+                    <img className="w-10 h-13" src={images.github} alt="github" />
+                    <a className="pl-5" href="https://www.github.com/friendofgats">github.com/friendofgats</a>
                 </div>
-                <div className="flex p-5 items-center">
-                    <img className="" src={images.phone} alt="phone" />
+                <div className="flex p-3 items-center">
+                    <img className="w-10 h-13" src={images.phone} alt="phone" />
                     <p className="pl-5">+1.920.660.7195</p>
 
                 </div>
-                <div className="flex p-5 items-center">
-                    <img className="" src={images.email} alt="email" />
+                <div className="flex p-3 items-center">
+                    <img className="w-10 h-13" src={images.email} alt="email" />
                     <p className="pl-5">ethan.heyrman@outlook.com</p>
                 </div>
             </div>

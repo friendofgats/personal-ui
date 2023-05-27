@@ -19,6 +19,8 @@ export default function RequestHandler(props = { section: "", verbosity: 0 }) {
                 }
             }
             ).then((response) => {
+                //TODO enable this when responses for each verbosity are set.
+                // const retrieved_key = response.data?.verbosity !== undefined ? section + '_' + response.data?.verbosity : key;
                 localStorage.setItem(key, JSON.stringify(response.data))
                 setData(response.data)
             })
