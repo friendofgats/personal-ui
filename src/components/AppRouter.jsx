@@ -16,7 +16,7 @@ export default function AppRouter() {
             <Routes>
                 <Route path="" element={<About section="About" verbosity={verbosity} setVerbosity={setVerbosity} />} />
                 <Route path="work" element={<Work section="Work" verbosity={verbosity} setVerbosity={setVerbosity} />} />
-                <Route path="fun" element={<Hobbies verbosity={verbosity} setVerbosity={setVerbosity} />} />
+                <Route path="fun" element={<Hobbies section="Hobbies" verbosity={verbosity} setVerbosity={setVerbosity} />} />
                 <Route path="contact" element={<Contact section="Contact" />} />
                 {/* <Route path="site" element={<Site />} /> */}
             </Routes>
