@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import AssetLoader from "./shared/AssetLoader";
 import Container from "./shared/Container";
+import Error from "./shared/Error";
 import RequestHandler from './shared/RequestHandler'
+
 export default function Contact({ section = "Contact", verbosity = 1, setVerbosity }) {
     const [images, setImages] = useState({});
 
@@ -12,10 +14,10 @@ export default function Contact({ section = "Contact", verbosity = 1, setVerbosi
     let queryParams = { section: section, verbosity: verbosity }
     let { data, error, loaded } = RequestHandler(queryParams);
 
-    if (!loaded)
+    if (!loaded || data?.body === undefined)
         return <div />
-    if (error)
-        return <div className="text-3xl text-yellow" >{error}</div>
+    else if (error)
+        return <Error error={error} />
     return (
         <div>
             <Container className="-mt-5" body={data?.body} />
