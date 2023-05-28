@@ -4,15 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'blue': '#1fb6ff',
-        'purple': '#7e5bef',
-        'pink': '#ff49db',
         'orange': '#cc5b0e',
-        'green': '#13ce66',
         'yellow': '#e7aa14',
-        'gray-dark': '#273444',
-        'gray': '#8492a6',
-        'gray-light': '#d3dce6',
         'brown': '#69320c',
         'tan': '#715920',
         'cave': '#38311f'

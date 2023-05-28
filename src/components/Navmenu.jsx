@@ -27,6 +27,13 @@ export default function Navmenu() {
         setMenuSelection(window.location.pathname.replace(/\//, ''));
     }
 
+    function onMenuClick(selection) {
+        setMenuSelection(selection);
+        handleMore(selection === "more")
+        if (selection !== "more")
+            setSubmenuSelection("");
+    }
+
     useEffect(() => {
         setImages(AssetLoader(require.context('../assets/images/nav', false, /\.(png|jpe?g|svg)$/)));
         setGifs(AssetLoader(require.context('../assets/gifs/nav', false, /\.(gif)$/)));
@@ -49,14 +56,14 @@ export default function Navmenu() {
                         <HoverableImage image={togglemenuSelectionImage("work")}
                             alt="What I do for work"
                             hoverImage={gifs.work}
-                            onClick={() => { setMenuSelection("work"); handleMore(false) }} />
+                            onClick={() => onMenuClick("work")} />
                     </Link>
                     <Link className="m-5" to="/fun">
                         <HoverableImage
                             image={togglemenuSelectionImage("fun")}
                             alt="What I do for fun"
                             hoverImage={gifs.fun}
-                            onClick={() => { setMenuSelection("fun"); handleMore(false) }} />
+                            onClick={() => onMenuClick("fun")} />
                     </Link>
                     <div>
                         <HoverableImage
@@ -64,19 +71,19 @@ export default function Navmenu() {
                             image={togglemenuSelectionImage("more")}
                             alt="More"
                             hoverImage={gifs.more}
-                            onClick={() => { setMenuSelection("more"); handleMore(true) }} />
+                            onClick={() => onMenuClick("more")} />
                         <div>
                             {open && isDesktop() ? (
                                 <MenuCloser clickHandler={handleOffMenuClick}>
                                     <ul className="max-2xl:hidden absolute mt-2 pr-2 pl-2 border-2 border-yellow bg-tan">
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "contact" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
+                                            <Link to="/contact" onClick={() => { console.log(submenuSelection); setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
                                         </li>
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "guts" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
+                                            <Link to="/guts" onClick={() => { console.log(submenuSelection); setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
                                         </li>
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "resume" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
+                                            <Link to="/resume" onClick={() => { console.log(submenuSelection); setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
                                         </li>
                                     </ul>
                                 </MenuCloser>
@@ -90,15 +97,15 @@ export default function Navmenu() {
                             <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 ">
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "contact" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(true) }}>Contact me</Link>
+                                    <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "guts" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(true) }}>Site guts</Link>
+                                    <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "resume" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(true) }}>Resume</Link>
+                                    <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
                                 </li>
                             </ul>
                         </MenuCloser>
