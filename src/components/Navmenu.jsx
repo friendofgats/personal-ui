@@ -37,6 +37,8 @@ export default function Navmenu() {
     useEffect(() => {
         setImages(AssetLoader(require.context('../assets/images/nav', false, /\.(png|jpe?g|svg)$/)));
         setGifs(AssetLoader(require.context('../assets/gifs/nav', false, /\.(gif)$/)));
+        let urlComps = window.location.href.replace("/", "").split('/');
+        setMenuSelection(urlComps[urlComps.length - 1]);
     }, [])
 
     return (
@@ -77,13 +79,13 @@ export default function Navmenu() {
                                 <MenuCloser clickHandler={handleOffMenuClick}>
                                     <ul className="max-2xl:hidden absolute mt-2 pr-2 pl-2 border-2 border-yellow bg-tan">
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "contact" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/contact" onClick={() => { console.log(submenuSelection); setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
+                                            <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
                                         </li>
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "guts" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/guts" onClick={() => { console.log(submenuSelection); setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
+                                            <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
                                         </li>
                                         <li className={`focus:text-orange hover:text-brown text-${submenuSelection === "resume" ? "orange" : "yellow"} pr-1`}>
-                                            <Link to="/resume" onClick={() => { console.log(submenuSelection); setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
+                                            <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
                                         </li>
                                     </ul>
                                 </MenuCloser>
@@ -109,7 +111,6 @@ export default function Navmenu() {
                                 </li>
                             </ul>
                         </MenuCloser>
-
                     ) : null}
                 </div>
             </div>
