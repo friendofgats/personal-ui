@@ -7,7 +7,7 @@ export default function App() {
     document.title = 'ethanheyrman.dev';
   }, []);
   return (
-    <main className='min-h-screen bg-cave font-vt323'>
+    <main className='h-full min-h-screen bg-cave font-vt323'>
       <div className='container mx-auto p-5'>
         <AppRouter />
       </div>
