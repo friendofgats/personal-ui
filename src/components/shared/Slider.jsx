@@ -1,5 +1,5 @@
 import ReactSlider from "react-slider";
-import thumb from '../../assets/images/shared/slider-thumb.png';
+import thumb from '../../assets/images/utilities/slider-thumb.png';
 
 /**
  * Simple implementation of react-slider's ReactSlider.
