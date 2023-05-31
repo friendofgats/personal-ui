@@ -96,7 +96,7 @@ export default function Navmenu() {
                 <div>
                     {open && !isDesktop() ? (
                         <MenuCloser clickHandler={handleOffMenuClick}>
-                            <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 ">
+                            <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 pb-3 ">
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "contact" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
                                     <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>

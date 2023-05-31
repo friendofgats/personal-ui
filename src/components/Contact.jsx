@@ -15,7 +15,7 @@ export default function Contact({ section = "Contact", verbosity = 5 }) {
     let queryParams = { section: section, verbosity: verbosity }
     let { data, error, loaded } = RequestHandler(queryParams);
 
-    if (!loaded || data?.body === undefined)
+    if (!loaded || (data?.body === undefined && !error))
         return <div />
     else if (error)
         return <Error error={error} />

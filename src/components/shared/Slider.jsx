@@ -9,7 +9,7 @@ import thumb from '../../assets/images/utilities/slider-thumb.png';
 export default function Slider(props) {
     return (
         <div>
-            <div className="appearance-none flex flex-col shrink items-center">
+            <div className="appearance-none flex flex-col -mt-3 shrink items-center">
                 <ReactSlider
                     {...props}
                     max={9}
@@ -20,6 +20,7 @@ export default function Slider(props) {
                             {...props}
                             text={null}
                         >
+                            {/* thumb renders off-center with this component so must offset */}
                             <img className="appearance-none h-full flex items-center justify-center mt-3 cursor-grab" src={thumb} alt=""></img>
                         </div>
                     )}
@@ -27,7 +28,7 @@ export default function Slider(props) {
                         return (
                             <div
                                 {...props}
-                                className="bg-orange outline outline-2 outline-yellow mr-4 ml-4 top-1/2 -translate-y-1/2"
+                                className="bg-orange outline outline-2 outline-yellow mr-4 ml-4 top-1/2"
                             ></div>
                         );
                     }}
