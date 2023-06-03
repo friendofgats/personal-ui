@@ -12,7 +12,7 @@ export default function Slider(props) {
             <div className="appearance-none flex flex-col -mt-3 shrink items-center">
                 <ReactSlider
                     {...props}
-                    max={9}
+                    max={5}
                     min={1}
                     onAfterChange={props?.setVerbosity}
                     renderThumb={(props, state) => (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import HoverableImage from "./shared/HoverableImage";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AssetLoader from "./shared/AssetLoader";
 import MenuCloser from "./shared/MenuCloser";
 

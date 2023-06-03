@@ -9,7 +9,7 @@ import Work from './Work';
 import { BrowserRouter, Navigate, Routes, Route, } from "react-router-dom";
 
 export default function AppRouter() {
-    const [verbosity, setVerbosity] = useState(5);
+    const [verbosity, setVerbosity] = useState(3);
     return (
         <BrowserRouter>
             <Navmenu />
