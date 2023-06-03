@@ -7,7 +7,7 @@ import MenuCloser from "./shared/MenuCloser";
 export default function Navmenu() {
     const [images, setImages] = useState({});
     const [gifs, setGifs] = useState({});
-    const [menuSelection, setMenuSelection] = useState(useLocation().pathname.replace("/", ""));
+    const [menuSelection, setMenuSelection] = useState("about");
     const [submenuSelection, setSubmenuSelection] = useState("");
     const [open, setOpen] = useState(false);
 
