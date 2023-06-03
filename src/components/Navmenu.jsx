@@ -37,8 +37,6 @@ export default function Navmenu() {
     useEffect(() => {
         setImages(AssetLoader(require.context('../assets/images/nav', false, /\.(png|jpe?g|svg)$/)));
         setGifs(AssetLoader(require.context('../assets/gifs/nav', false, /\.(gif)$/)));
-        let urlComps = window.location.href.replace("/", "").split('/');
-        setMenuSelection(urlComps[urlComps.length - 1]);
     }, [])
 
     return (
