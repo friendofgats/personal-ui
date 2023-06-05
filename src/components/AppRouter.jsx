@@ -12,7 +12,7 @@ export default function AppRouter() {
     const [verbosity, setVerbosity] = useState(3);
     return (
         <BrowserRouter>
-            <Navmenu />
+            <Navmenu verbosity={verbosity} setVerbosity={setVerbosity} />
             <Routes>
                 <Route path="about" element={<About section="About" verbosity={verbosity} setVerbosity={setVerbosity} />} />
                 <Route path="work" element={<Work section="Work" verbosity={verbosity} setVerbosity={setVerbosity} />} />

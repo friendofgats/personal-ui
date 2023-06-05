@@ -3,8 +3,9 @@ import HoverableImage from "./shared/HoverableImage";
 import { Link } from "react-router-dom";
 import AssetLoader from "./shared/AssetLoader";
 import MenuCloser from "./shared/MenuCloser";
+import Slider from "./shared/Slider";
 
-export default function Navmenu() {
+export default function Navmenu({ verbosity, setVerbosity }) {
     const [images, setImages] = useState({});
     const [gifs, setGifs] = useState({});
     const [menuSelection, setMenuSelection] = useState("about");
@@ -16,6 +17,10 @@ export default function Navmenu() {
     }
 
     const isDesktop = () => window.innerWidth > 1536;
+
+    function renderSlider() {
+        return ["about", "work", "fun", "more"].includes(menuSelection) && !(["resume", "guts", "contact"].includes(submenuSelection))
+    }
 
     function handleMore(shouldOpen) {
         if (shouldOpen === true && open) return;
@@ -48,7 +53,7 @@ export default function Navmenu() {
                         image={togglemenuSelectionImage("about")}
                         alt="Ethan Heyrman"
                         hoverImage={gifs.about}
-                        onClick={() => { setMenuSelection("about"); handleMore(false) }} />
+                        onClick={() => onMenuClick("about")} />
                 </Link>
                 <img className="scale-50 max-2xl:hidden 2xl:visible 2xl:m-5" src={images.break} alt="|" />
                 <div className="flex flex-row items-center lg:h-3/4 lg:w-3/4 2xl:h-full 2xl:w-full max-2xl:ml-2 max-2xl:mr-2">
@@ -97,21 +102,22 @@ export default function Navmenu() {
                             <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 pb-3 ">
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "contact" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
+                                    <Link to="/contact" onClick={() => { setMenuSelection(""); setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "guts" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
+                                    <Link to="/guts" onClick={() => { setMenuSelection(""); setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "resume" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
+                                    <Link to="/resume" onClick={() => { setMenuSelection(""); setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
                                 </li>
                             </ul>
                         </MenuCloser>
                     ) : null}
                 </div>
             </div>
+            {renderSlider() ? <Slider className="w-80 h-12" defaultValue={verbosity} min={1} max={5} setVerbosity={setVerbosity} /> : null}
         </header>
     );
 }
