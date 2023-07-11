@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import HoverableImage from "./shared/HoverableImage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AssetLoader from "./shared/AssetLoader";
 import MenuCloser from "./shared/MenuCloser";
 import Slider from "./shared/Slider";
@@ -102,15 +102,15 @@ export default function Navmenu({ verbosity, setVerbosity }) {
                             <ul className="flex flex-row items-center lg:hidden pr-2 pl-2 pb-3 ">
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "contact" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/contact" onClick={() => { setMenuSelection(""); setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
+                                    <Link to="/contact" onClick={() => { setSubmenuSelection("contact"); handleMore(false) }}>Contact me</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "guts" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/guts" onClick={() => { setMenuSelection(""); setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
+                                    <Link to="/guts" onClick={() => { setSubmenuSelection("guts"); handleMore(false) }}>Site guts</Link>
                                 </li>
                                 <li className={`focus:text-orange hover:text-orange text-${submenuSelection === "resume" ? "orange" : "yellow"
                                     } border-2 border-yellow bg-tan m-1 pr-2 pl-2`}>
-                                    <Link to="/resume" onClick={() => { setMenuSelection(""); setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
+                                    <Link to="/resume" onClick={() => { setSubmenuSelection("resume"); handleMore(false) }}>Resume</Link>
                                 </li>
                             </ul>
                         </MenuCloser>
